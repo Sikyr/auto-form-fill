@@ -85,7 +85,7 @@ document.addEventListener('keydown', function(event) {
 		const countryOption = document.querySelector('[data-id="recipient.country"] div.select select [value="' + getCountryCode(rowSplit[countryColumn]) + '"]') 
 		
 		countrySelect.options[countryOption.index].selected = true;
-		countrySelect.dispatchEvent(new Event('change'));;
+		countrySelect.dispatchEvent(new Event('change'));
 		countrySelect.focus();
 		
 	}

@@ -1,0 +1,61 @@
+{
+    "standartSaved" : 1,
+
+    "presets":{
+        "Sun_Empire": {
+            "fisrtName": "B",
+            "street": "F",
+            "zip": "J", 
+            "city": "G",
+            "state": "H", 
+            "country": "I"
+        },
+
+        "Nick_000": {
+            "fisrtName": "B",
+            "street": "C",
+            "zip": "G", 
+            "city": "D",
+            "state": "E", 
+            "country": "F"
+        },
+
+        "PL_000": {
+            "fisrtName": "B",
+            "secondName": "B",
+            "street": "C",
+            "zip": "G", 
+            "city": "D",
+            "state": "E", 
+            "country": "F"
+        },
+
+        "Trendy_Orders": {
+            "fisrtName": "F",
+            "secondName": "G",
+            "street": "H",
+            "zip": "J", 
+            "city": "I",
+            "state": "N", 
+            "country": "K"
+        },
+
+        "11000_Nick_month_date": {
+            "fisrtName": "O",
+            "street": "P",
+            "zip": "T", 
+            "city": "Q",
+            "state": "R", 
+            "country": "S"
+        },
+
+        "0_Orders_for_Shipping": {
+            "fisrtName": "E",
+            "street": "F",
+            "zip": "H", 
+            "city": "G",
+            "state": "", 
+            "country": "I"
+        }
+    }
+}

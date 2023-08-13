@@ -1,3 +1,7 @@
+import PresetsManager from './PresetsManager.js';
+
+const presManager = new PresetsManager;
+
 // даю обработчики кнопкам, чекбоксу и селекту
 addPresButton.addEventListener('click', addPreset);
 delPresButton.addEventListener('click', delPreset);
@@ -17,12 +21,14 @@ document.getElementById('name2_number').addEventListener('input', charCheck);
 // запускаю заполнение пресета настройками из кукисов
 LoadLastSet();
 
+setSelectOpts();
+
 // запускаю функцию "при запуске"
 onLoad();
 
 // проверка на сохранение стандартного набора пресетов
 chrome.storage.local.get(['standartSaved'], function(result){
-	if (!result.standartSaved) saveStandartSettingsPresets();
+	if (!result.standartSaved) presManager.saveStandartSettings();
 });
 
 // добавление нового пресета 
@@ -31,7 +37,7 @@ function addPreset(){
 	let presName = prompt("Please, enter preset name(without spaces, or kirilic letters)", "Example_0321_blabla");
 	
 	// запрашиваю объект персетов и запускаю функцию
-	chrome.storage.local.get('presets', result => addPresetDB(result.presets, presName));
+	presManager.add(presName);
 	
 	// Добавляю его в селект
 	var opt = document.createElement('option');
@@ -41,60 +47,14 @@ function addPreset(){
 	selectFile.value = presName;
 }
 
-// функция добавления в базу данных 
-function addPresetDB(presetsObj, presName){
-	//добавляем в основной объект новый пресет
-	presetsObj[presName] = {
-		'fisrtName': document.getElementById('name_number').value,
-		'secondName': numberName2.value,
-		'street': document.getElementById('street_number').value,
-		'zip': document.getElementById('zip_number').value, 
-		'city': document.getElementById('city_number').value,
-		'state': document.getElementById('state_number').value, 
-		'country': document.getElementById('country_number').value
-	};
-	
-	// кидаем его в бд
-	chrome.storage.local.set(
-		{'presets': presetsObj}, 
-		function() {
-			// просто уведомляю о сохранении данных
-			alert("New preset is added");
-		});
-}
-
 // удаление выбраного пресета
 function delPreset(){
-	chrome.storage.local.get('presets', result => delPresetDB(result.presets, selectFile.value));
-}
+	presManager.delete(selectFile.value);
 
-function delPresetDB(presetsObj, presName){
-	//добавляем в основной объект новый пресет
-	delete presetsObj[presName];
-	console.log(presName);
-	
-	// кидаем его в бд
-	chrome.storage.local.set(
-	{'presets': presetsObj}, 
-		function() {
-			// просто уведомляю о сохранении данных
-			alert("Preset deleted");
-		});
-		
+	selectFile.removeChild(selectFile.querySelector('[value="' + selectFile.value + '"]'));
+
 	selectFile.value = "last_settings";
 	LoadLastSet();	
-	
-	selectFile.removeChild(selectFile.querySelector('[value="' + presName + '"]'));
-}
-
-// функция при запуске
-function onLoad(){
-	
-	// создаю пустой массив для формирования запроса в базу данных
-	var presGetArr = [];
-	
-	// функция заполнения селектов
-	setSelectOpts();
 }
 
 // функция заполнения селекта опциями по сохранённым пресетам
@@ -113,76 +73,6 @@ function setSelectOpts(){
 			opt.innerHTML = presNamesArr[i];
 			selectFile.appendChild(opt);
 		}
-	});
-}
-
-// сохранение стандартного набора пресетов
-function saveStandartSettingsPresets(){
-	
-	// считываю инпуты и сохраняю данные в хранилище
-	chrome.storage.local.set({
-		'standartSaved' : 1,
-
-		'presets':{
-			'Sun_Empire': {
-				'fisrtName': 'B',
-				'street': "F",
-				'zip': "J", 
-				'city': "G",
-				'state': "H", 
-				'country': "I"
-			},
-
-			'Nick_000': {
-				'fisrtName': "B",
-				'street': "C",
-				'zip': "G", 
-				'city': "D",
-				'state': "E", 
-				'country': "F"
-			},
-
-			'PL_000': {
-				'fisrtName': "B",
-				'secondName': "B",
-				'street': "C",
-				'zip': "G", 
-				'city': "D",
-				'state': "E", 
-				'country': "F"
-			},
-
-			'Trendy_Orders': {
-				'fisrtName': "F",
-				'secondName': "G",
-				'street': "H",
-				'zip': "J", 
-				'city': "I",
-				'state': "N", 
-				'country': "K"
-			},
-
-			'11000_Nick_month_date': {
-				'fisrtName': "O",
-				'street': "P",
-				'zip': "T", 
-				'city': "Q",
-				'state': "R", 
-				'country': "S"
-			},
-
-			'0_Orders_for_Shipping': {
-				'fisrtName': "E",
-				'street': "F",
-				'zip': "H", 
-				'city': "G",
-				'state': "", 
-				'country': "I"
-			}
-		}
-		
-		}, function() {
-		alert("Standart set of settings presets is loaded!");
 	});
 }
 

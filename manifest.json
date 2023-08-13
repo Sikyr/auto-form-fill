@@ -15,7 +15,7 @@
 			"https://mojezasielky.posta.sk/*",
 			"http://mojezasielky.posta.sk/*"
 		],
-		"js": ["jquery-3.6.0.js", "content.js", "constants.js"]
+		"js": ["content.js", "constants.js"]
 	}],
 	
 	"browser_action": {
