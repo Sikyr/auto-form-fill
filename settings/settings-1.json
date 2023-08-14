@@ -1,0 +1,253 @@
+{
+    "standartSaved" : 1,
+
+    "savedPres":{
+        "firstName": "S",
+        "secondName": "",
+        "street": "A",
+        "zip": "M", 
+        "city": "P",
+        "state": "L", 
+        "country": "E"
+    },
+
+    "presets":{
+        "Sun_Empire": {
+            "firstName": "B",
+            "street": "F",
+            "zip": "J", 
+            "city": "G",
+            "state": "H", 
+            "country": "I"
+        },
+
+        "Nick_000": {
+            "firstName": "B",
+            "street": "C",
+            "zip": "G", 
+            "city": "D",
+            "state": "E", 
+            "country": "F"
+        },
+
+        "PL_000": {
+            "firstName": "B",
+            "secondName": "B",
+            "street": "C",
+            "zip": "G", 
+            "city": "D",
+            "state": "E", 
+            "country": "F"
+        },
+
+        "Trendy_Orders": {
+            "firstName": "F",
+            "secondName": "G",
+            "street": "H",
+            "zip": "J", 
+            "city": "I",
+            "state": "N", 
+            "country": "K"
+        },
+
+        "11000_Nick_month_date": {
+            "firstName": "O",
+            "street": "P",
+            "zip": "T", 
+            "city": "Q",
+            "state": "R", 
+            "country": "S"
+        },
+
+        "0_Orders_for_Shipping": {
+            "firstName": "E",
+            "street": "F",
+            "zip": "H", 
+            "city": "G",
+            "state": "", 
+            "country": "I"
+        }
+    },
+
+    "countryCodes": {
+        "Austria": {
+            "code": "at",
+            "names": ["Austria", "at"]
+        },
+        
+        "Belgium": {
+            "code": "be",
+            "names": ["Belgium", "be"]
+        },
+    
+        "Canada": {
+            "code": "ca",
+            "names": ["Canada", "ca"]
+        },
+    
+        "Chile": {
+            "code": "cl",
+            "names": ["Chile", "cl"]
+        },
+    
+        "Croatia": {
+            "code": "hr",
+            "names": ["Croatia", "hr"]
+        },
+    
+        "Czech Republic": {
+            "code": "cz",
+            "names": ["Czech Republic", "cz"]
+        },
+    
+        "Denmark": {
+            "code": "dk",
+            "names": ["Denmark", "dk"]
+        },
+    
+        "Estonia": {
+            "code": "ee",
+            "names": ["Estonia", "ee"]
+        },
+    
+        "Finland": {
+            "code": "fi",
+            "names": ["Finland", "fi"]
+        },
+    
+        "France": {
+            "code": "fr",
+            "names": ["France", "fr"]
+        },
+    
+        "Germany": {
+            "code": "de",
+            "names": ["Germany", "Deutschland", "de"]
+        },
+    
+        "Greece": {
+            "code": "gr",
+            "names": ["Greece", "gr"]
+        },
+    
+        "Hungary": {
+            "code": "hu",
+            "names": ["Hungary", "hu"]
+        },
+    
+        "Ireland": {
+            "code": "ie",
+            "names": ["Ireland", "ie"]
+        },
+    
+        "Italy": {
+            "code": "it",
+            "names": ["Italy", "it"]
+        },
+    
+        "Luxembourg": {
+            "code": "lu",
+            "names": ["Luxembourg", "lu"]
+        },
+    
+        "Malaysia": {
+            "code": "my",
+            "names": ["Malaysia", "my"]
+        },
+    
+        "Malta": {
+            "code": "mt",
+            "names": ["Malta", "mt"]
+        },
+    
+        "Netherlands": {
+            "code": "nl",
+            "names": ["Netherlands", "nl"]
+        },
+    
+        "New Zealand": {
+            "code": "nz",
+            "names": ["New Zealand", "nz"]
+        },
+    
+        "Norway": {
+            "code": "no",
+            "names": ["Norway", "no"]
+        },
+    
+        "Peru": {
+            "code": "pe",
+            "names": ["Peru", "pe"]
+        },
+    
+        "Poland": {
+            "code": "pl",
+            "names": ["Poland", "pl"]
+        },
+    
+        "Portugal": {
+            "code": "pt",
+            "names": ["Portugal", "pt"]
+        },
+    
+        "Romania": {
+            "code": "ro",
+            "names": ["Romania", "ro"]
+        },
+    
+        "Saudi Arabia": {
+            "code": "ae",
+            "names": ["Saudi Arabia", "ae"]
+        },
+    
+        "Singapore": {
+            "code": "sg",
+            "names": ["Singapore", "sg"]
+        },
+    
+        "Slovakia": {
+            "code": "sk",
+            "names": ["Slovakia", "sk"]
+        },
+    
+        "Slovenia": {
+            "code": "si",
+            "names": ["Slovenia", "si"]
+        },
+    
+        "Spain": {
+            "code": "es",
+            "names": ["Spain", "es"]
+        },
+    
+        "Sweden": {
+            "code": "se",
+            "names": ["Sweden", "se"]
+        },
+    
+        "Switzerland": {
+            "code": "ch",
+            "names": ["Switzerland", "ch"]
+        },
+    
+        "Taiwan": {
+            "code": "tw",
+            "names": ["Taiwan", "tw"]
+        },
+    
+        "Thailand": {
+            "code": "th",
+            "names": ["Thailand", "th"]
+        },
+    
+        "United States": {
+            "code": "us",
+            "names": ["United States", "us"]
+        },
+    
+        "United Kingdom": {
+            "code": "gb",
+            "names": ["United Kingdom", "gb"]
+        }
+    }
+}

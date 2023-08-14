@@ -15,12 +15,14 @@
 			"https://mojezasielky.posta.sk/*",
 			"http://mojezasielky.posta.sk/*"
 		],
-		"js": ["content.js", "constants.js"]
+		"js": ["content/content.js"]
 	}],
 	
+	"options_page": "settings-page/settings.html",
+
 	"browser_action": {
         "default_title": "AutoFill",
         "default_icon": "icon128.png",
-        "default_popup": "popup.html"
+        "default_popup": "popup/popup.html"
     }
 }
