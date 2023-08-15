@@ -40,6 +40,34 @@ function getCountryCode(value) {
 	});
 }
 
+function getEmptyStateCodes() {
+	return new Promise((resolve, reject) => {
+		chrome.storage.local.get("stateEmptyCodes", function(result) {
+			if (chrome.runtime.lastError) {
+				return reject(chrome.runtime.lastError);
+			}
+			resolve(result.stateEmptyCodes);
+		});
+	});
+}
+
+function cleanFromChars(zip) {
+	return new Promise((resolve, reject) => {
+		chrome.storage.local.get("extraZipChars", function(result) {
+			if (chrome.runtime.lastError) {
+				return reject(chrome.runtime.lastError);
+			}
+			let newZip = zip;
+			for (const char of result.extraZipChars) {
+				if (newZip.startsWith(char)) {
+					newZip = (newZip.slice(1));
+				}
+			}
+			resolve(newZip);
+		});
+	});
+}
+
 async function FormFill(rowSplit){
 	//получаю и присваию имя
 	const nameDiv = document.querySelector('[data-id="recipient.name"]') 
@@ -71,10 +99,12 @@ async function FormFill(rowSplit){
 	const zipDiv = document.querySelector('[data-id="recipient.zip"]') 
 	const zipInput = document.querySelector('[data-id="recipient.zip"] div.input input') 
 
-	if(rowSplit[zipColumn].startsWith("'")) 
-		zipInput.value = rowSplit[zipColumn].slice(1);
-	else
-		zipInput.value = rowSplit[zipColumn];
+	// if(rowSplit[zipColumn].startsWith("'")) 
+	// 	zipInput.value = rowSplit[zipColumn].slice(1);
+	// else
+	// 	zipInput.value = rowSplit[zipColumn];
+
+	zipInput.value = await cleanFromChars(rowSplit[zipColumn]);
 	zipDiv.classList.add('filled');
 	zipInput.focus();
 
@@ -82,7 +112,8 @@ async function FormFill(rowSplit){
 	const cityDiv = document.querySelector('[data-id="recipient.city"]') 
 	const cityInput = document.querySelector('[data-id="recipient.city"] div.input input') 
 	
-	if(stateColumn == "" || rowSplit[stateColumn] == "xx" || rowSplit[stateColumn] == "" || rowSplit[stateColumn] == "N/A" || rowSplit[stateColumn] == "_" || !rowSplit[stateColumn])
+	const emptStCodes = await getEmptyStateCodes();
+	if(emptStCodes.includes(rowSplit[stateColumn]) || !rowSplit[stateColumn])
 		cityInput.value = rowSplit[cityColumn];
 	else
 		cityInput.value = rowSplit[cityColumn] + ", " + rowSplit[stateColumn];
@@ -92,12 +123,9 @@ async function FormFill(rowSplit){
 	// присваиваю страну
 	const countrySelect = document.querySelector('[data-id="recipient.country"] div.select select') 
 	const countryOption = document.querySelector('[data-id="recipient.country"] div.select select [value="' + await getCountryCode(rowSplit[countryColumn]) + '"]') 
-
-	console.log(countryOption);
-	console.log(getCountryCode(rowSplit[countryColumn]));
 	
 	countrySelect.options[countryOption.index].selected = true;
 	countrySelect.dispatchEvent(new Event('change'));
 	countrySelect.focus();
-	
 }
+

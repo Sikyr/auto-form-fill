@@ -1,5 +1,9 @@
 {
     "standartSaved" : 1,
+    
+    "stateEmptyCodes": ["", "xx", "N/A", "_"],
+    
+    "extraZipChars": [" ", "'", "-"],
 
     "savedPres":{
         "firstName": "S",
