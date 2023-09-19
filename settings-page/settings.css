@@ -1,42 +1,216 @@
-/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<link href="settings.css" rel="stylesheet" type="text/css"> */
-
-body{
-    margin-top:20px;
-    background:#F0F8FF;
+:root {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
 }
 
-.card {
-    margin-bottom: 1.5rem;
-    box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
 }
 
-.card {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid #e5e9f2;
-    border-radius: .2rem;
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
 }
 
-.card-header:first-child {
-    border-radius: calc(.2rem - 1px) calc(.2rem - 1px) 0 0;
+span.version {
+  padding: 14px 16px;
+  float: right;
 }
 
-.card-header {
-    border-bottom-width: 1px;
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
 }
 
-.card-header {
-    padding: .75rem 1.25rem;
-    margin-bottom: 0;
-    color: inherit;
-    background-color: #fff;
-    border-bottom: 1px solid #e5e9f2;
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.importBtn {
+  float: right !important;
+  background-color: #53e200 !important;
+}
+
+.importBtn:hover {
+  float: right !important;
+  background-color: #3da700 !important;
+}
+
+.importBtn.active {
+  float: right !important;
+  background-color: #3a5f24 !important;
+}
+
+.reload-button {
+  float: right !important;
+  background-color: #e29a00 !important;
+}
+
+.reload-button:hover {
+  float: right !important;
+  background-color: #a76d00 !important;
+}
+
+.reload-button.active {
+  float: right !important;
+  background-color: #5f4724 !important;
+}
+
+.hidden {
+  display: none;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+.tab-content {
+  align-content: center;
+}
+
+.zip-chars-list {
+  width: auto;
+}
+
+.zip-chars-list button {
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+.table-wrapper {
+  width: 700px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.table-title {
+  padding-bottom: 10px;
+  margin: 0 0 10px;
+}
+
+.table-title h2 {
+  margin: 6px 0 0;
+  font-size: 22px;
+}
+
+.table-title .add-new {
+  float: right;
+  height: 30px;
+  font-weight: bold;
+  font-size: 12px;
+  text-shadow: none;
+  min-width: 100px;
+  border-radius: 50px;
+  line-height: 13px;
+}
+
+.table-title .add-new i {
+  margin-right: 4px;
+}
+
+table.table {
+  table-layout: fixed;
+}
+
+table.table tr th, table.table tr td {
+  border-color: #e9e9e9;
+}
+
+table.table th i {
+  font-size: 13px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+table.table th:last-child {
+  width: 100px;
+}
+
+table.table td a {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 5px;
+  min-width: 24px;
+}
+
+table.table td a.add {
+	color: #27C46B;
+}
+
+table.table td a.edit {
+	color: #FFC107;
+}
+
+table.table td a.delete {
+  color: #E34724;
+}
+
+table.table td i {
+  font-size: 19px;
+}
+
+table.table td a.add i {
+  font-size: 24px;
+  margin-right: -1px;
+  position: relative;
+  top: 3px;
+}
+
+table.table .form-control {
+  height: 32px;
+  line-height: 32px;
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+table.table .form-control.error {
+  border-color: #f50000;
+}
+
+#country-select {
+  width: 80%;
+  font-size: 16pt;
+}
+
+.add-new-country {
+  margin-top: -7px;
+  padding: 2px 6px !important;
+}
+
+div.presets > pre {
+  font-size: 18px;
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+div.input {
+  font-size: 16px;
+  margin-top: 5px;
 }

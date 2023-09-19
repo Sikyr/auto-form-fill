@@ -1,4 +1,6 @@
 {
+    "version": "1.0.0",
+
     "standartSaved" : 1,
     
     "stateEmptyCodes": ["", "xx", "N/A", "_"],
