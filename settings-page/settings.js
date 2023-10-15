@@ -90,13 +90,11 @@ function convertFileToJSON(fileInput) {
         return;
       }
 
-      // Check if the selected file has a JSON extension
       if (selectedFile.name.endsWith(".json")) {
         const reader = new FileReader();
 
         reader.onload = function (e) {
           try {
-            // Parse the JSON data from the file
             const jsonObject = JSON.parse(e.target.result);
             resolve(jsonObject);
           } catch (error) {
