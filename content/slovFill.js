@@ -99,7 +99,7 @@ async function FormFill(rowSplit){
 	const cityInput = document.querySelector('[data-id="recipient.city"] div.input input') 
 	
 	const emptStCodes = await getEmptyStateCodes();
-	if(emptStCodes.includes(rowSplit[stateColumn]) || !rowSplit[stateColumn])
+	if(emptStCodes.includes(rowSplit[stateColumn]) || !rowSplit[stateColumn] || rowSplit[cityColumn].toUpperCase() == rowSplit[stateColumn].toUpperCase())
 		cityInput.value = rowSplit[cityColumn];
 	else
 		cityInput.value = rowSplit[cityColumn] + ", " + rowSplit[stateColumn];

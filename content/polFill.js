@@ -99,7 +99,7 @@ async function FormFill(rowSplit){
 
 	const cityInput = document.querySelector('#miejscowosc') 
 	const emptStCodes = await getEmptyStateCodes();
-	if ( emptStCodes.includes(rowSplit[stateColumn]) || !rowSplit[stateColumn] ) {
+	if ( emptStCodes.includes(rowSplit[stateColumn]) || !rowSplit[stateColumn]  || rowSplit[cityColumn].toUpperCase() == rowSplit[stateColumn].toUpperCase()) {
 		cityInput.value = rowSplit[cityColumn];
 	} else {
 		cityInput.value = rowSplit[cityColumn] + ", " + rowSplit[stateColumn];
@@ -110,13 +110,7 @@ async function FormFill(rowSplit){
 	cityInput.focus();
 	
 	const countrySelect = document.querySelector('#kraj_id');
-	console.log(countrySelect);
-	console.log(rowSplit[countryColumn]);
-	console.log(await getCountryCode(rowSplit[countryColumn]));
-	console.log(countrySelect.querySelector('[value="' + await getCountryCode(rowSplit[countryColumn]) + '"]'));
-	console.log(document.querySelector('[value="' + await getCountryCode(rowSplit[countryColumn]) + '"]'));
 	const countryOption = countrySelect.querySelector('[value="' + await getCountryCode(rowSplit[countryColumn]) + '"]');
-	console.log(countryOption);
 	countrySelect.options[countryOption.index].selected = true;
 	countrySelect.dispatchEvent(new Event('change'));
 	countrySelect.focus();
