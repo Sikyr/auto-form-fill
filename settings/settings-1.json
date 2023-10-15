@@ -77,182 +77,218 @@
 
     "countryCodes": {
         "Austria": {
-            "code": "at",
+            "codeSlov": "at",
+            "codePol": "16",
             "names": ["Austria", "at"]
         },
         
         "Belgium": {
-            "code": "be",
+            "codeSlov": "be",
+            "codePol": "22",
             "names": ["Belgium", "be"]
         },
     
         "Canada": {
-            "code": "ca",
+            "codeSlov": "ca",
+            "codePol": "100",
             "names": ["Canada", "ca"]
         },
     
         "Chile": {
-            "code": "cl",
+            "codeSlov": "cl",
+            "codePol": "39",
             "names": ["Chile", "cl"]
         },
     
         "Croatia": {
-            "code": "hr",
+            "codeSlov": "hr",
+            "codePol": "41",
             "names": ["Croatia", "hr"]
         },
     
         "Czech Republic": {
-            "code": "cz",
+            "codeSlov": "cz",
+            "codePol": "46",
             "names": ["Czech Republic", "cz"]
         },
     
         "Denmark": {
-            "code": "dk",
+            "codeSlov": "dk",
+            "codePol": "48",
             "names": ["Denmark", "dk"]
         },
     
         "Estonia": {
-            "code": "ee",
+            "codeSlov": "ee",
+            "codePol": "56",
             "names": ["Estonia", "ee"]
         },
     
         "Finland": {
-            "code": "fi",
+            "codeSlov": "fi",
+            "codePol": "61",
             "names": ["Finland", "fi"]
         },
     
         "France": {
-            "code": "fr",
+            "codeSlov": "fr",
+            "codePol": "62",
             "names": ["France", "fr"]
         },
     
         "Germany": {
-            "code": "de",
+            "codeSlov": "de",
+            "codePol": "147",
             "names": ["Germany", "Deutschland", "de"]
         },
     
         "Greece": {
-            "code": "gr",
+            "codeSlov": "gr",
+            "codePol": "69",
             "names": ["Greece", "gr"]
         },
     
         "Hungary": {
-            "code": "hu",
+            "codeSlov": "hu",
+            "codePol": "227",
             "names": ["Hungary", "hu"]
         },
     
         "Ireland": {
-            "code": "ie",
+            "codeSlov": "ie",
+            "codePol": "90",
             "names": ["Ireland", "ie"]
         },
     
         "Italy": {
-            "code": "it",
+            "codeSlov": "it",
+            "codePol": "230",
             "names": ["Italy", "it"]
         },
     
         "Luxembourg": {
-            "code": "lu",
+            "codeSlov": "lu",
+            "codePol": "121",
             "names": ["Luxembourg", "lu"]
         },
     
         "Malaysia": {
-            "code": "my",
+            "codeSlov": "my",
+            "codePol": "129",
             "names": ["Malaysia", "my"]
         },
     
         "Malta": {
-            "code": "mt",
+            "codeSlov": "mt",
+            "codePol": "131",
             "names": ["Malta", "mt"]
         },
     
         "Netherlands": {
-            "code": "nl",
+            "codeSlov": "nl",
+            "codePol": "83",
             "names": ["Netherlands", "nl"]
         },
     
         "New Zealand": {
-            "code": "nz",
+            "codeSlov": "nz",
+            "codePol": "155",
             "names": ["New Zealand", "nz"]
         },
     
         "Norway": {
-            "code": "no",
+            "codeSlov": "no",
+            "codePol": "153",
             "names": ["Norway", "no"]
         },
     
         "Peru": {
-            "code": "pe",
+            "codeSlov": "pe",
+            "codePol": "163",
             "names": ["Peru", "pe"]
         },
     
         "Poland": {
-            "code": "pl",
+            "codeSlov": "pl",
+            "codePol": "404",
             "names": ["Poland", "pl"]
         },
     
         "Portugal": {
-            "code": "pt",
+            "codeSlov": "pt",
+            "codePol": "168",
             "names": ["Portugal", "pt"]
         },
     
         "Romania": {
-            "code": "ro",
+            "codeSlov": "ro",
+            "codePol": "175",
             "names": ["Romania", "ro"]
         },
     
         "Saudi Arabia": {
-            "code": "ae",
+            "codeSlov": "ae",
+            "codePol": "256",
             "names": ["Saudi Arabia", "ae"]
         },
     
         "Singapore": {
-            "code": "sg",
+            "codeSlov": "sg",
+            "codePol": "192",
             "names": ["Singapore", "sg"]
         },
     
         "Slovakia": {
-            "code": "sk",
+            "codeSlov": "sk",
+            "codePol": "194",
             "names": ["Slovakia", "sk"]
         },
     
         "Slovenia": {
-            "code": "si",
+            "codeSlov": "si",
+            "codePol": "195",
             "names": ["Slovenia", "si"]
         },
     
         "Spain": {
-            "code": "es",
+            "codeSlov": "es",
+            "codePol": "82",
             "names": ["Spain", "es"]
         },
     
         "Sweden": {
-            "code": "se",
+            "codeSlov": "se",
+            "codePol": "205",
             "names": ["Sweden", "se"]
         },
     
         "Switzerland": {
-            "code": "ch",
+            "codeSlov": "ch",
+            "codePol": "204",
             "names": ["Switzerland", "ch"]
         },
     
         "Taiwan": {
-            "code": "tw",
+            "codeSlov": "tw",
+            "codePol": "169",
             "names": ["Taiwan", "tw"]
         },
     
         "Thailand": {
-            "code": "th",
+            "codeSlov": "th",
+            "codePol": "207",
             "names": ["Thailand", "th"]
         },
     
         "United States": {
-            "code": "us",
+            "codeSlov": "us",
+            "codePol": "198",
             "names": ["United States", "us"]
         },
     
         "United Kingdom": {
-            "code": "gb",
+            "codeSlov": "gb",
+            "codePol": "228",
             "names": ["United Kingdom", "gb"]
         }
     }

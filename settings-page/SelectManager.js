@@ -29,13 +29,15 @@ export default class SelectManager {
     }
 
     addOption() {
-        const name = prompt("Please, enter the name of the country", "Germany");
-        const code = prompt("Please, enter the code(2 digits)", "de");
+        const name = prompt("Please, enter the name of the country", "TestCountry");
+        const codeSlov = prompt("Please, enter the code for slovakian website(2 digits)", "tc");
+        const codePol = prompt("Please, enter the code for polish website(number)", "47");
         let option = document.createElement("option");
         option.value = name;
         option.innerHTML = name;
         this.options[name] = {
-            "code": code,
+            "codeSlov": codeSlov,
+            "codePol": codePol,
             "names": [name, code]
         }
         this.select.appendChild(option);

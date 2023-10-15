@@ -64,4 +64,10 @@ export default class SettingsManager {
         }
     }
 
+    loadSettings(settingsObject) {
+        chrome.storage.local.set( settingsObject , function() {
+            alert("Standart set of settings presets is loaded!");
+        });
+    }
+
 }

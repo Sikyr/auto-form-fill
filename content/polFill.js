@@ -1,12 +1,10 @@
 var nameColumn, name2Column, streetColumn, zipColumn, cityColumn, stateColumn, countryColumn;
 
-// обработчик нажатия горячей клавиши
 document.addEventListener('keydown', function(event) {
 	if (event.code == 'KeyQ' && (event.ctrlKey || event.metaKey)) magicCombinationClick(event);
 });
 
 function magicCombinationClick() {
-	// получаю из хранилища и присваиваю номера столбцов
 	chrome.storage.local.get("savedPres", function(result) {
 		nameColumn = result.savedPres["firstName"].charCodeAt(0) - 65;
 		name2Column = result.savedPres["secondName"].charCodeAt(0) - 65;
@@ -16,11 +14,10 @@ function magicCombinationClick() {
 		stateColumn = result.savedPres["state"].charCodeAt(0) - 65;
 		countryColumn = result.savedPres["country"].charCodeAt(0) - 65;
 	});
-	
-	//читаю из буфера обмена и разбиваю строчку по табам
+
 	window.navigator.clipboard.readText()
-    .then((data) => FormFill(data.split('\t')))
-    .catch((err) => console.error('Не удалось скопировать', err));;
+    	.then((data) => FormFill(data.split('\t')))
+    		.catch((err) => console.error('Не удалось скопировать', err));;
 }
 
 function getCountryCode(value) {
@@ -32,7 +29,7 @@ function getCountryCode(value) {
 			for (let country in result.countryCodes) {
 				for(let name of result.countryCodes[country].names) {
 					if (value.toUpperCase() == name.toUpperCase()) {
-						resolve(result.countryCodes[country].code);
+						resolve(result.countryCodes[country].codePol);
 					}
 				}	
 			}
@@ -69,61 +66,57 @@ function cleanFromChars(zip) {
 }
 
 async function FormFill(rowSplit){
-	//получаю и присваию имя
-	const nameDiv = document.querySelector('[data-id="recipient.name"]') 
-	const nameInput = document.querySelector('[data-id="recipient.name"] div.input input') 
-	
-	// проверка на раздельное имя
-	if (name2Column == "" || !name2Column)
-		nameInput.value = rowSplit[nameColumn];
-	else {
-		if (rowSplit[nameColumn] == rowSplit[name2Column])
-			nameInput.value = rowSplit[nameColumn];
-		else
-			nameInput.value = rowSplit[nameColumn] + " " + rowSplit[name2Column];
+
+	const nameInput = document.querySelector('#nazwa') 
+	if ( name2Column == "" || !name2Column ){
+        nameInput.value = rowSplit[nameColumn]
+    } else {
+		if ( rowSplit[nameColumn] == rowSplit[name2Column] ) {
+            nameInput.value = rowSplit[nameColumn]
+        } else {
+            nameInput.value = rowSplit[nameColumn] + " " + rowSplit[name2Column]
+        }
 	}
-	nameDiv.classList.add('filled');
+	if ( nameInput.classList.contains('widgetError') ) {
+        nameInput.classList.remove('widgetError');
+    }
 	nameInput.focus();
 	
-	
-	//получаю и присваию улицу
-	const streetDiv = document.querySelector('[data-id="recipient.street"]') 
-	var streetInput = document.querySelector('[data-id="recipient.street"] div.input textarea') 
-	if (!streetInput) streetInput = document.querySelector('[data-id="recipient.street"] div.input input');
-
+	const streetInput = document.querySelector('#ulica') 
 	streetInput.value = rowSplit[streetColumn];
-	streetDiv.classList.add('filled');
+    if ( streetInput.classList.contains('widgetError') ) {
+        streetInput.classList.remove('widgetError');
+    }
 	streetInput.focus();
 	
-	//получаю и присваию зип-код
-	const zipDiv = document.querySelector('[data-id="recipient.zip"]') 
-	const zipInput = document.querySelector('[data-id="recipient.zip"] div.input input') 
-
-	// if(rowSplit[zipColumn].startsWith("'")) 
-	// 	zipInput.value = rowSplit[zipColumn].slice(1);
-	// else
-	// 	zipInput.value = rowSplit[zipColumn];
-
+	const zipInput = document.querySelector('#kod_pocztowy') 
 	zipInput.value = await cleanFromChars(rowSplit[zipColumn]);
-	zipDiv.classList.add('filled');
+    if ( zipInput.classList.contains('widgetError') ) {
+        zipInput.classList.remove('widgetError');
+    }
 	zipInput.focus();
 
-	//получаю и присваию город
-	const cityDiv = document.querySelector('[data-id="recipient.city"]') 
-	const cityInput = document.querySelector('[data-id="recipient.city"] div.input input') 
-	
+
+	const cityInput = document.querySelector('#miejscowosc') 
 	const emptStCodes = await getEmptyStateCodes();
-	if(emptStCodes.includes(rowSplit[stateColumn]) || !rowSplit[stateColumn])
+	if ( emptStCodes.includes(rowSplit[stateColumn]) || !rowSplit[stateColumn] ) {
 		cityInput.value = rowSplit[cityColumn];
-	else
+	} else {
 		cityInput.value = rowSplit[cityColumn] + ", " + rowSplit[stateColumn];
-	cityDiv.classList.add('filled');
+    }
+    if (cityInput.classList.contains('widgetError')) {
+        cityInput.classList.remove('widgetError');
+    }
 	cityInput.focus();
 	
-	// присваиваю страну
-	const countrySelect = document.querySelector('[data-id="recipient.country"] div.select select') 
-	const countryOption = document.querySelector('[data-id="recipient.country"] div.select select [value="' + await getCountryCode(rowSplit[countryColumn]) + '"]') 
-	
+	const countrySelect = document.querySelector('#kraj_id');
+	console.log(countrySelect);
+	console.log(rowSplit[countryColumn]);
+	console.log(await getCountryCode(rowSplit[countryColumn]));
+	console.log(countrySelect.querySelector('[value="' + await getCountryCode(rowSplit[countryColumn]) + '"]'));
+	console.log(document.querySelector('[value="' + await getCountryCode(rowSplit[countryColumn]) + '"]'));
+	const countryOption = countrySelect.querySelector('[value="' + await getCountryCode(rowSplit[countryColumn]) + '"]');
+	console.log(countryOption);
 	countrySelect.options[countryOption.index].selected = true;
 	countrySelect.dispatchEvent(new Event('change'));
 	countrySelect.focus();
